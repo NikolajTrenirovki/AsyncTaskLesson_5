@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startTask() {
         mt = new MyTask();
+        mt.execute();
     }
 
     private void showStatus() {
