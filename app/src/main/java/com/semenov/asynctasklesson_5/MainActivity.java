@@ -38,11 +38,15 @@ public class MainActivity extends AppCompatActivity {
     private void startTask() {
         mt = new MyTask();
         mt.execute();
+        mt.cancel(false);
     }
 
     private void showStatus() {
         if (mt != null)
-            Toast.makeText(this, mt.getStatus().toString(), Toast.LENGTH_SHORT).show();
+            if (mt.isCancelled())
+                Toast.makeText(this, "CANCELLED", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(this, mt.getStatus().toString(), Toast.LENGTH_SHORT).show();
     }
 
 
